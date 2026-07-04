@@ -887,6 +887,15 @@ footer {
   font-size: 15px;
 }
 
+.case-content code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+
 .case-content ul.check-list li::before {
   content: "";
   flex-shrink: 0;

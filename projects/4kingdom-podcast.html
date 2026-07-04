@@ -86,10 +86,21 @@
       <aside class="case-toc">
         <a href="#overview">Overview</a>
         <a href="#problem">Problem</a>
+        <a href="#goals">Goals</a>
+        <a href="#research">Research</a>
+        <a href="#planning">Planning</a>
+        <a href="#design-decisions">Design Decisions</a>
         <a href="#solution">Solution</a>
         <a href="#technologies">Technologies</a>
+        <a href="#architecture">Architecture</a>
         <a href="#challenges">Challenges</a>
+        <a href="#tradeoffs">Trade-offs</a>
+        <a href="#accessibility">Accessibility</a>
+        <a href="#responsive">Responsive Approach</a>
+        <a href="#performance">Performance</a>
+        <a href="#testing">Testing</a>
         <a href="#learned">What I Learned</a>
+        <a href="#future">Future Improvements</a>
         <a href="#screenshots">Screenshots</a>
       </aside>
 
@@ -120,6 +131,55 @@
             <li>No unified destination — links pointed to different platforms with inconsistent presentation.</li>
             <li>No consistent visual brand across the platforms the show appeared on.</li>
             <li>New listeners had no fast way to understand what the show was about before committing to an episode.</li>
+          </ul>
+        </section>
+
+        <section id="goals">
+          <span class="kicker">Goals</span>
+          <h2>What the site needed to accomplish</h2>
+          <ul class="check-list">
+            <li>Give the show one consistent home across every platform it appears on.</li>
+            <li>Let a new visitor understand what the show is and start an episode within seconds.</li>
+            <li>Support weekly new episodes without needing a redesign as the archive grows.</li>
+          </ul>
+        </section>
+
+        <section id="research">
+          <span class="kicker">Research</span>
+          <h2>Learning from other independent shows</h2>
+          <p>
+            I looked at how other independent podcasts present themselves
+            online and found most either had no dedicated site at all or an
+            outdated one that didn't reflect the show's current identity. I
+            also looked at brand-forward interview and media sites for
+            patterns in how they organize episode browsing, and talked
+            directly with Micah, my co-host, about tone and identity to make
+            sure the design actually matched how the show sounds, not a
+            generic "podcast template" look.
+          </p>
+        </section>
+
+        <section id="planning">
+          <span class="kicker">Planning</span>
+          <h2>Three destinations, one identity</h2>
+          <p>
+            I planned the site around three core destinations: home
+            (identity plus the latest episode), episodes (a browsable
+            archive), and about (the hosts and the show's mission). I
+            decided early that episodes should link out to Spotify and
+            YouTube directly rather than embedding custom players — keeping
+            the site simple, fast, and free of duplicating infrastructure
+            those platforms already provide.
+          </p>
+        </section>
+
+        <section id="design-decisions">
+          <span class="kicker">Design Decisions</span>
+          <h2>Warm and consistent, not templated</h2>
+          <ul class="check-list">
+            <li>Built one consistent type and color system reflecting the show's actual tone rather than a generic "corporate podcast" template.</li>
+            <li>Put the tagline — "Real Conversations. Biblical Truth. Christ-Centered Growth." — front and center so a visitor understands the show's identity in one glance.</li>
+            <li>Designed episode cards as a single reusable component so the browsing experience stays consistent as the archive grows.</li>
           </ul>
         </section>
 
@@ -163,6 +223,21 @@
           </div>
         </section>
 
+        <section id="architecture">
+          <span class="kicker">Architecture</span>
+          <h2>How the pieces fit together</h2>
+          <p>
+            The site is built with a modern JavaScript front-end and
+            deployed on Vercel, which gives room to add features later —
+            like an automated episode feed — without re-architecting the
+            site. The episode card is a single reusable component rendered
+            for every entry, so the browsing experience stays visually
+            consistent as new episodes are added each week, and outbound
+            links to Spotify and YouTube are handled the same way across
+            every card rather than one-off per episode.
+          </p>
+        </section>
+
         <section id="challenges">
           <span class="kicker">Challenges</span>
           <h2>What was hard about this build</h2>
@@ -171,6 +246,59 @@
             <li><strong>Scaling episode content weekly:</strong> The show adds a new episode every week, so the episode section had to stay easy to browse without needing a redesign every few months — solved with a structured, chronological layout built to grow.</li>
             <li><strong>Multi-platform without fragmentation:</strong> Linking out to Spotify and YouTube risked pulling the brand experience apart — solved by keeping the website as the consistent hub and treating outside platforms purely as distribution.</li>
           </ul>
+        </section>
+
+        <section id="tradeoffs">
+          <span class="kicker">Trade-offs</span>
+          <h2>Decisions made with eyes open</h2>
+          <ul class="check-list">
+            <li><strong>Link out instead of embedding players:</strong> Faster to ship and avoids duplicating hosting infrastructure Spotify and YouTube already provide, at the cost of visitors briefly leaving the site to listen.</li>
+            <li><strong>Simple chronological list over search/filtering:</strong> Appropriate for the show's current episode count; I'd revisit this if the archive grows significantly.</li>
+            <li><strong>No self-hosted media:</strong> Keeps the site lightweight, at the cost of not controlling the on-site listening experience directly.</li>
+          </ul>
+        </section>
+
+        <section id="accessibility">
+          <span class="kicker">Accessibility Considerations</span>
+          <h2>Usable beyond a mouse and a monitor</h2>
+          <ul class="check-list">
+            <li>Sufficient contrast between text and background across the brand color palette for readability.</li>
+            <li>Descriptive labels on episode links (platform and episode title, not just "listen here").</li>
+            <li>Logical heading structure so screen reader users can jump straight to the episodes section.</li>
+          </ul>
+        </section>
+
+        <section id="responsive">
+          <span class="kicker">Responsive Design Approach</span>
+          <h2>Mobile first, since audiences discover shows there</h2>
+          <p>
+            Podcast audiences overwhelmingly discover new shows on their
+            phones, so I designed mobile-first: episode cards stack in a
+            single column on small screens and move into a grid at wider
+            breakpoints, with the same component styling at every size.
+          </p>
+        </section>
+
+        <section id="performance">
+          <span class="kicker">Performance Considerations</span>
+          <h2>Light by design</h2>
+          <ul class="check-list">
+            <li>Deployed on Vercel for fast global edge delivery.</li>
+            <li>Kept media playback off-site (Spotify and YouTube links) instead of self-hosting audio or video, avoiding heavy media payloads on the site itself.</li>
+          </ul>
+        </section>
+
+        <section id="testing">
+          <span class="kicker">Testing Process</span>
+          <h2>How I verified it before and after launch</h2>
+          <p>
+            Testing was manual: cross-browser and cross-device checks, plus
+            confirming outbound platform links (Spotify, YouTube) resolve
+            correctly after every content update. There's no automated test
+            suite — reasonable for a content site without complex
+            application logic, but something I'd add if the site grew more
+            interactive features like search or an embedded player.
+          </p>
         </section>
 
         <section id="learned">
@@ -186,6 +314,16 @@
             Cloudflare on the Roman Creative Studio project, so I understand
             how front-end code ships differently depending on the platform.
           </p>
+        </section>
+
+        <section id="future">
+          <span class="kicker">Future Improvements</span>
+          <h2>What I'd build next</h2>
+          <ul class="check-list">
+            <li>Add an RSS/episode feed integration so new episodes appear automatically instead of a manual update per release.</li>
+            <li>Add search and filtering once the episode archive grows large enough to need it.</li>
+            <li>Consider a lightweight embedded player for on-site listening, without giving up the simplicity of linking out today.</li>
+          </ul>
         </section>
 
         <section id="screenshots">
