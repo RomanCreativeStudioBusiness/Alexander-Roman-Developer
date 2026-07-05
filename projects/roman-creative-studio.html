@@ -5,6 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Roman Creative Studio — Case Study | Alexander Roman</title>
   <meta name="description" content="Case study: how I designed and built Roman Creative Studio, a conversion-focused digital agency website for local businesses." />
+  <link rel="canonical" href="https://alexanderroman.dev/projects/roman-creative-studio.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Roman Creative Studio — Case Study" />
+  <meta property="og:description" content="How I designed and built a conversion-focused digital agency website for local businesses." />
+  <meta property="og:url" content="https://alexanderroman.dev/projects/roman-creative-studio.html" />
+  <meta property="og:image" content="https://alexanderroman.dev/assets/images/og-cover.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Roman Creative Studio — Case Study" />
+  <meta name="twitter:image" content="https://alexanderroman.dev/assets/images/og-cover.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "Roman Creative Studio — Case Study",
+    "author": { "@type": "Person", "name": "Alexander Roman" },
+    "about": "Roman Creative Studio, a conversion-focused digital agency website",
+    "url": "https://alexanderroman.dev/projects/roman-creative-studio.html"
+  }
+  </script>
+
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="../css/style.css" />
 </head>
@@ -37,6 +59,8 @@
       <a href="../index.html#contact" class="btn btn-primary">Get in touch</a>
     </div>
   </nav>
+
+  <main>
 
   <header class="case-header">
     <div class="container">
@@ -87,10 +111,21 @@
       <aside class="case-toc">
         <a href="#overview">Overview</a>
         <a href="#problem">Problem</a>
+        <a href="#goals">Goals</a>
+        <a href="#research">Research</a>
+        <a href="#planning">Planning</a>
+        <a href="#design-decisions">Design Decisions</a>
         <a href="#solution">Solution</a>
         <a href="#technologies">Technologies</a>
+        <a href="#architecture">Architecture</a>
         <a href="#challenges">Challenges</a>
+        <a href="#tradeoffs">Trade-offs</a>
+        <a href="#accessibility">Accessibility</a>
+        <a href="#responsive">Responsive Approach</a>
+        <a href="#performance">Performance</a>
+        <a href="#testing">Testing</a>
         <a href="#learned">What I Learned</a>
+        <a href="#future">Future Improvements</a>
         <a href="#screenshots">Screenshots</a>
       </aside>
 
@@ -132,6 +167,58 @@
             <li>No clear next step for a first-time visitor to take.</li>
             <li>Generic messaging that doesn't speak to a specific industry (dental practice vs. church vs. restaurant).</li>
             <li>Claims without evidence — no real numbers to back up "we get results."</li>
+          </ul>
+        </section>
+
+        <section id="goals">
+          <span class="kicker">Goals</span>
+          <h2>What the site needed to accomplish</h2>
+          <ul class="check-list">
+            <li>Increase qualified inquiries — booked strategy calls — from local business owners, not just traffic.</li>
+            <li>Establish credibility for a new agency competing against firms with longer track records.</li>
+            <li>Support new niche landing pages (new industries) without a redesign each time.</li>
+            <li>Stay fast despite image-heavy portfolio and testimonial sections.</li>
+          </ul>
+        </section>
+
+        <section id="research">
+          <span class="kicker">Research</span>
+          <h2>What actually makes an owner trust an agency</h2>
+          <p>
+            Before writing a line of copy, I audited a dozen-plus competitor
+            agency sites — local and national — and found the same pattern
+            repeated: portfolio grid first, vague "we do digital marketing"
+            messaging, and a contact form with no clear reason to fill it
+            out. I also had informal conversations with the kind of business
+            owners this site targets — a dentist, a church administrator —
+            about what made them trust or distrust an agency's website
+            before ever getting on a call. Specificity and proof came up
+            every time; adjectives didn't.
+          </p>
+        </section>
+
+        <section id="planning">
+          <span class="kicker">Planning</span>
+          <h2>Mapping the funnel before the layout</h2>
+          <p>
+            I planned the page as a single decision funnel before touching
+            visual design: hero → proof (real case studies and testimonials)
+            → services → process and pricing → one recurring call-to-action.
+            I also decided upfront that niche landing pages (dental, church,
+            and future verticals) needed to be a distinct content type from
+            day one, with shared header, footer, and CTA components, so
+            adding a new niche later wouldn't mean rebuilding shared
+            structure from scratch.
+          </p>
+        </section>
+
+        <section id="design-decisions">
+          <span class="kicker">Design Decisions</span>
+          <h2>Choices that reinforce the one goal</h2>
+          <ul class="check-list">
+            <li>Reserved a single accent color exclusively for CTA buttons, so "Book a free strategy call" never competes visually with anything else on the page.</li>
+            <li>Gave real numbers (47% increase, 3× growth) more visual weight than icons or badges — specificity was the strongest asset available, so the design foregrounds it.</li>
+            <li>Used generous spacing and restrained typography to read as premium rather than the cluttered, directory-style layout common among competitors.</li>
           </ul>
         </section>
 
@@ -178,6 +265,23 @@
           </div>
         </section>
 
+        <section id="architecture">
+          <span class="kicker">Architecture</span>
+          <h2>How the pieces fit together</h2>
+          <p>
+            The site is a static multi-page build with shared component
+            patterns rather than a single-page app: header, footer, and CTA
+            blocks stay consistent across every page, including the growing
+            set of niche landing pages, which keeps them from drifting out
+            of sync as the site expands. Interaction logic lives in
+            <code>assets/js/main.js</code>, separate from content in
+            <code>assets/images</code>, so behavior and content can change
+            independently. Cloudflare sits in front of the site for CDN
+            caching and handles obfuscating the contact email against
+            scraping.
+          </p>
+        </section>
+
         <section id="challenges">
           <span class="kicker">Challenges</span>
           <h2>What was hard about this build</h2>
@@ -186,6 +290,62 @@
             <li><strong>Scaling niche pages without duplicating the codebase:</strong> Built shared components (nav, footer, CTA blocks) so new niche landing pages could swap in industry-specific copy without rebuilding shared structure from scratch.</li>
             <li><strong>Staying fast with image-heavy sections:</strong> Portfolio and testimonial sections are naturally image-heavy — addressed with image optimization so load times didn't suffer as the site grew.</li>
           </ul>
+        </section>
+
+        <section id="tradeoffs">
+          <span class="kicker">Trade-offs</span>
+          <h2>Decisions made with eyes open</h2>
+          <ul class="check-list">
+            <li><strong>Hand-coded over a CMS:</strong> Chose static HTML/CSS/JS over WordPress or a page builder — faster and lighter, at the cost of no non-technical editing UI. Acceptable since I'm both the developer and the person updating copy.</li>
+            <li><strong>Static niche pages over a templating system:</strong> Faster to ship initially, at the cost of some duplication across pages. A known trade-off I'd revisit with a static site generator if the number of niches kept growing.</li>
+            <li><strong>No automated testing:</strong> Prioritized launch speed for a small business over building CI/test infrastructure, appropriate for a marketing site with no complex application logic.</li>
+          </ul>
+        </section>
+
+        <section id="accessibility">
+          <span class="kicker">Accessibility Considerations</span>
+          <h2>Usable beyond a mouse and a monitor</h2>
+          <ul class="check-list">
+            <li>Semantic landmarks (<code>nav</code>, <code>header</code>, sectioned <code>main</code> content) so screen readers can navigate by structure, not guesswork.</li>
+            <li>Checked color contrast on CTA buttons and body text against the dark backgrounds used across the site.</li>
+            <li>Kept visible focus states on links, buttons, and form fields instead of removing them for aesthetics.</li>
+            <li>Wrote descriptive link and button text ("Book a free strategy call" rather than "Click here").</li>
+          </ul>
+        </section>
+
+        <section id="responsive">
+          <span class="kicker">Responsive Design Approach</span>
+          <h2>Mobile first, because most visitors are</h2>
+          <p>
+            I designed single-column, stacked layouts first, then expanded
+            to multi-column grids at wider breakpoints — the reverse of
+            designing desktop-first and shrinking down. I tested manually at
+            common breakpoints (375px, 768px, 1024px, 1440px), since most
+            traffic for these clients arrives on mobile.
+          </p>
+        </section>
+
+        <section id="performance">
+          <span class="kicker">Performance Considerations</span>
+          <h2>Fast despite heavy visual proof</h2>
+          <ul class="check-list">
+            <li>Compressed and appropriately sized images across the portfolio and testimonial sections.</li>
+            <li>Kept JavaScript minimal — no framework overhead, since the site doesn't need client-side routing or complex state.</li>
+            <li>Relies on Cloudflare's CDN and caching for fast delivery regardless of visitor location.</li>
+          </ul>
+        </section>
+
+        <section id="testing">
+          <span class="kicker">Testing Process</span>
+          <h2>How I verified it before and after launch</h2>
+          <p>
+            Testing was manual: cross-browser checks in Chrome, Safari, and
+            Firefox across desktop and mobile, plus a keyboard-navigation
+            and contrast pass for accessibility. There's no automated test
+            suite — a reasonable trade-off for a marketing site with no
+            complex application logic, but a gap I'd close with Lighthouse
+            CI on a larger or more interactive project.
+          </p>
         </section>
 
         <section id="learned">
@@ -200,6 +360,16 @@
             a one-time throwaway build, since I'm the one who has to change
             it every time the offer or messaging shifts.
           </p>
+        </section>
+
+        <section id="future">
+          <span class="kicker">Future Improvements</span>
+          <h2>What I'd build next</h2>
+          <ul class="check-list">
+            <li>Add automated Lighthouse checks on deploy to catch performance or accessibility regressions before they ship.</li>
+            <li>Migrate niche landing pages to a lightweight static site generator to remove copy-paste duplication between pages.</li>
+            <li>Add analytics-driven A/B testing on CTA copy and placement to keep improving conversion rate with data instead of intuition.</li>
+          </ul>
         </section>
 
         <section id="screenshots">
@@ -247,13 +417,15 @@
     </div>
   </div>
 
+  </main>
+
   <footer>
     <div class="container footer-inner">
       <p>© <span class="current-year"></span> Alexander Roman. Built with HTML, CSS &amp; JavaScript.</p>
       <div class="footer-links">
         <a href="../index.html#work">Work</a>
         <a href="../about.html">About</a>
-        <a href="mailto:4kingdomzs@gmail.com">Contact</a>
+        <a href="mailto:alexander@romancreativestudio.co">Contact</a>
       </div>
     </div>
   </footer>
