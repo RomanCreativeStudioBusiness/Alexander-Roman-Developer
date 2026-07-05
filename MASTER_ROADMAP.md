@@ -41,22 +41,37 @@ but never actually built.
 
 ## Phase 3 — Professional Presence
 
-**Status: Partially complete**
+**Status: Complete**, except one item blocked on missing information.
 
 Done:
 - Case-study depth expansion (the 18-section structure above).
+- **SEO pass**: canonical URLs, Open Graph + Twitter Card tags, and
+  JSON-LD structured data on every page; a generated `og-cover.png`
+  (`assets/images/`); `sitemap.xml` and `robots.txt` at the repo root.
+  Uses `https://alexanderroman.dev` as a placeholder domain throughout —
+  replace with the real deployed domain once one exists.
+- **Real accessibility + performance audit**: ran actual Lighthouse
+  audits (not estimates) against every page. Found and fixed three real
+  issues — insufficient color contrast on muted text (`--text-tertiary`
+  token, plus two component-specific colors), a heading-order skip
+  (`h4` used without an `h3` ancestor), and a missing `<main>` landmark
+  on every page. Before: 89 accessibility (home), 100/100/100 elsewhere.
+  After: **100 performance / 100 accessibility / 100 best practices / 100
+  SEO on all five pages**, re-verified with a fresh Lighthouse run plus a
+  full functional re-check (no console errors, mobile nav intact, no
+  visual regression).
+- **Resume ATS refinement**: expanded the Skills line with true keyword
+  synonyms (DOM Manipulation, Web Accessibility (WCAG), Version Control
+  (Git & GitHub), Cross-Browser Compatibility, Static Site Deployment)
+  without touching any bullet Phase 4.5 references.
+- **LinkedIn content**: [headline, About, experience, skills, and featured
+  projects](https://claude.ai/code/artifact/055489d9-bcbe-412a-8a50-f04e00aac535),
+  plus a real generated 1584×396 banner image (sent as a file, laid out to
+  clear the profile-photo overlap zone).
 
-**Not started** — planned in the original Phase 3 prompt but never
-actually built, flagged here rather than glossed over:
-- SEO pass: meta titles/descriptions, Open Graph tags, structured data,
-  `sitemap.xml`, `robots.txt`.
-- A real accessibility + performance audit pass (Lighthouse run against
-  the live site, fixes applied, before/after recorded).
-- GitHub profile README (`<username>/<username>` repo) — blocked on
-  knowing the GitHub username this should live under.
-- LinkedIn content (headline, About section, experience bullets, banner
-  concept).
-- Resume ATS keyword refinement pass.
+**Still blocked:**
+- GitHub profile README (`<username>/<username>` repo) — needs your
+  actual GitHub username before it can be created.
 
 Say the word and any of these can be picked up from here.
 
@@ -153,8 +168,11 @@ Quarterly consistency check (pair with the reflection above):
 
 **Immediate:**
 - Fill in `resume.html`'s bracketed placeholders before sending it anywhere.
-- Decide whether to complete Phase 3's unfinished items (SEO, audits,
-  GitHub README, LinkedIn content) now or later.
+- Replace the `https://alexanderroman.dev` placeholder domain in every
+  `og:url`/canonical tag, `sitemap.xml`, and `robots.txt` once the site has
+  a real deployed domain.
+- Share your GitHub username to unblock the one remaining Phase 3 item
+  (the profile README).
 
 **Ongoing:**
 - One `docs/reflections/YYYY-QX.md` file per quarter.
