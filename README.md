@@ -1,42 +1,121 @@
 # Alexander Roman — Developer Portfolio
 
-A modern, SaaS-style developer portfolio built with plain HTML, CSS, and
-JavaScript (no framework or build step required).
+A modern, responsive developer portfolio built with HTML, CSS, and JavaScript to showcase projects, case studies, and technical skills. The site follows a clean SaaS-inspired design and is optimized for performance, accessibility, and responsive layouts.
 
-## Structure
+## Live Demo
 
-```
-index.html                       Homepage — hero, project grid, about preview, contact
-about.html                       Full About Me page
-resume.html                      Printable resume (recruiter-ready, use Print / Save as PDF)
+🌐 **Portfolio:** https://romancreativestudio.co
+
+## Preview
+
+> Add desktop and mobile screenshots here.
+
+## Features
+
+* Responsive mobile-first design
+* Modern SaaS-inspired UI
+* Project case studies
+* Recruiter-friendly resume page
+* Smooth scrolling and navigation
+* Scroll reveal animations
+* Contact section with social links
+* Print-friendly resume
+* Fast-loading static website
+* No frameworks or build tools required
+
+## Built With
+
+* HTML5
+* CSS3
+* JavaScript (ES6+)
+* Git
+* GitHub
+* Cloudflare Pages
+
+## Project Structure
+
+```text
+index.html                       Homepage
+about.html                       About page
+resume.html                      Printable resume
+
 projects/
-  roman-creative-studio.html     Case study: Roman Creative Studio
-  4kingdom-podcast.html          Case study: 4Kingdom Podcast
-css/style.css                    Design system + all page styles
-js/main.js                       Mobile nav, scroll reveal, active states
+├── roman-creative-studio.html
+└── 4kingdom-podcast.html
+
+css/
+└── style.css
+
+js/
+└── main.js
 ```
 
-## Running locally
+## Running Locally
 
-No build step is needed. Either open `index.html` directly in a browser, or
-serve the folder locally:
+Clone the repository:
 
+```bash
+git clone <repository-url>
 ```
+
+Move into the project:
+
+```bash
+cd <repository-folder>
+```
+
+Start a local server:
+
+```bash
 python3 -m http.server 8000
 ```
 
-Then visit `http://localhost:8000`.
+Then visit:
 
-## Deploying
+```text
+http://localhost:8000
+```
 
-This is a static site, so it deploys as-is to GitHub Pages, Vercel,
-Netlify, or Cloudflare Pages — no build command required.
+## Deployment
 
-## Before publishing
+This project is a fully static website and can be deployed directly to:
 
-- `resume.html` has placeholders for phone, city/state, GitHub URL, and
-  LinkedIn URL — search for `[Add` to find them.
-- Update the social links in the contact section of `index.html` (GitHub,
-  LinkedIn) once you have public profile URLs.
-- Swap the browser-mockup placeholders for real screenshots if you'd like
-  (`.browser-frame .surface` in `css/style.css`).
+* GitHub Pages
+* Cloudflare Pages
+* Netlify
+* Vercel
+
+No build command or package installation is required.
+
+## Future Improvements
+
+* Dark mode
+* Project filtering
+* Blog section
+* Contact form backend
+* Accessibility improvements
+* Performance optimizations
+
+## What I Learned
+
+Building this portfolio strengthened my understanding of:
+
+* Responsive web design
+* Semantic HTML
+* CSS architecture
+* JavaScript DOM manipulation
+* Accessibility fundamentals
+* Git and GitHub workflows
+* Static website deployment
+
+## Author
+
+**Alexander Roman**
+
+Portfolio: https://romancreativestudio.co
+
+LinkedIn: https://www.linkedin.com/in/alexander-roman-151b48393/
+
+GitHub: https://github.com/<your-username>
+
+Email: [alexander@romancreativestudio.co](mailto:alexander@romancreativestudio.co)
