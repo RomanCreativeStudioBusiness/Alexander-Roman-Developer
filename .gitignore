@@ -1,0 +1,25 @@
+# Secrets & credentials — never commit these
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+credentials.json
+secrets.json
+*_rsa
+*_rsa.pub
+
+# Internal / private planning docs — keep out of this public repo
+docs/reflections/
+MASTER_ROADMAP.md
+internal/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Dependencies (none currently, forward-looking)
+node_modules/
